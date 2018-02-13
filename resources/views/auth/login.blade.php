@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('mobile_number') ? ' has-error' : '' }}">
-                            <label for="mobile_number" class="col-md-4 control-label">Mobile Number</label>
+                            <label for="mobile_number" class="col-md-4 control-label">User ID</label>
 
                             <div class="col-md-6">
                                 <input id="mobile_number" type="number" class="form-control" name="mobile_number" value="{{ old('mobile_number') }}" required autofocus>
