@@ -1,2 +1,2 @@
 # sangrahscoresheet
-It is a scoreboard website for sangrah competions
+ It is a scoreboard website for sangrah competions
