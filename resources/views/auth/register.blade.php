@@ -39,6 +39,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('event_name') ? ' has-error' : '' }}">
+                            <label for="event_name" class="col-md-4 control-label">Event name</label>
+
+                            <div class="col-md-6">
+                                <input id="event_name" type="text" class="form-control" name="event_name" value="{{ old('event_name') }}" required autofocus>
+
+                                @if ($errors->has('event_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('event_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
+                            <label for="department" class="col-md-4 control-label">Department</label>
+
+                            <div class="col-md-6">
+                                <input id="department" type="text" class="form-control" name="department" value="{{ old('department') }}" required autofocus>
+
+                                @if ($errors->has('department'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('department') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
