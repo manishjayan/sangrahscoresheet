@@ -15,7 +15,8 @@ class AddForeignKeysToUsersTable extends Migration
     {
         Schema::table('winners', function(Blueprint $table)
 		{
-			$table->foreign('user_id')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('CASCADE');
+            $table->foreign('college_id')->references('id')->on('colleges')->onUpdate('RESTRICT')->onDelete('CASCADE');
 		});
     }
 
@@ -29,6 +30,7 @@ class AddForeignKeysToUsersTable extends Migration
         Schema::table('winners', function(Blueprint $table)
 		{
             $table->dropForeign('winners_user_id_foreign');
+            $table->dropForeign('winners_college_id_foreign');
 		});
     }
 }
