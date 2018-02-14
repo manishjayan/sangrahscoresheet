@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Winner;
+use App\College;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,89 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $college = new College();
+        $colleges = $college->get()->all();
+        return view('home', ['colleges' => $colleges]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $first_name = $request['firstname'];
+        $second_name = $request['secondname'];
+        $third_name = $request['thirdname'];
+        $first_college = $request['first_college'];
+        $second_college = $request['second_college'];
+        $third_college = $request['third_college'];
+
+        $winner = new Winner();
+        $winner->name = $first_name;
+        $winner->college_id = (int) $first_college;
+        $winner->user_id = Auth::user()->id;
+        $winner->save();
+
+        $winner = new Winner();
+        $winner->name = $second_name;
+        $winner->college_id = (int) $second_college;
+        $winner->user_id = Auth::user()->id;
+        $winner->save();
+
+        $winner = new Winner();
+        $winner->name = $third_name;
+        $winner->college_id = (int) $third_college;
+        $winner->user_id = Auth::user()->id;
+        $winner->save();
+       
+        return ['msg' => 'success'];
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Winner  $winner
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Winner $winner)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Winner  $winner
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Winner $winner)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Winner  $winner
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Winner $winner)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Winner  $winner
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Winner $winner)
+    {
+        //
     }
 }

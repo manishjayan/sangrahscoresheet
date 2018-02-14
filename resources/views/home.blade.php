@@ -47,41 +47,45 @@ div {
 }
 </style>
 <body>
-<form>
-<h2>1st place</h2>
-<div>
-    <label for="fname">Full Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    <label for="college">College</label>
-    <select id="college" name="Select College">
-      <option value="college1">College1</option>
-      <option value="college2">college2</option>
-      <option value="college3">college3</option>
-    </select>
-</div>
-<h2>2nd place</h2>
-<div>
-    <label for="fname">Full Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    <label for="college">college</label>
-    <select id="college" name="Select College">
-      <option value="college1">college1</option>
-      <option value="college2">college2</option>
-      <option value="college3">college3</option>
-    </select>
-</div>
-<h2>3rd place</h2>
-<div>
-    <label for="fname">Full Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    <label for="college">college</label>
-    <select id="college" name="Select College">
-      <option value="college1">college1</option>
-      <option value="college2">college2</option>
-      <option value="college3">college3</option>
-    </select>
-</div>
-<input type="submit" value="Submit">
+<form method="POST" action="/home">
+    {{ csrf_field() }}
+    <h2>1st place</h2>
+    <div>
+        <label for="fname">Full Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="college">College</label>
+        <select name="first_college">
+            @foreach ($colleges as $college)
+                <option value="{{ $college->id }}">{{ $college->college_name }}</option>
+            @endforeach
+        </select>
+        
+    </div>
+    <h2>2nd place</h2>
+    <div>
+        <label for="fname">Full Name</label>
+        <input type="text" id="fname" name="secondname" placeholder="Your name..">
+        <label for="college">college</label>
+        <select name="second_college">
+            @foreach ($colleges as $college)
+                <option value="{{ $college->id }}">{{ $college->college_name }}</option>
+            @endforeach
+        </select>
+       
+    </div>
+    <h2>3rd place</h2>
+    <div>
+        <label for="fname">Full Name</label>
+        <input type="text" id="fname" name="thirdname" placeholder="Your name..">
+        <label for="college">college</label>
+        <select name="third_college">
+            @foreach ($colleges as $college)
+                <option value="{{ $college->id }}">{{ $college->college_name }}</option>
+            @endforeach
+        </select>
+        
+    </div>
+    <input type="submit" value="Submit">
 </form>
 </body>
                 </div>
@@ -89,4 +93,5 @@ div {
         </div>
     </div>
 </div>
+
 @endsection
