@@ -52,17 +52,32 @@ class HomeController extends Controller
         $winner->user_id = Auth::user()->id;
         $winner->save();
 
+        $college = College::find((int) $first_college);
+        $prev_points = $college->points;
+        $college->points = $prev_points + 10;
+        $college->save();
+        
         $winner = new Winner();
         $winner->name = $second_name;
         $winner->college_id = (int) $second_college;
         $winner->user_id = Auth::user()->id;
         $winner->save();
 
+        $college = College::find((int) $second_college);
+        $prev_points = $college->points;
+        $college->points = $prev_points + 6;
+        $college->save();
+
         $winner = new Winner();
         $winner->name = $third_name;
         $winner->college_id = (int) $third_college;
         $winner->user_id = Auth::user()->id;
         $winner->save();
+
+        $college = College::find((int) $third_college);
+        $prev_points = $college->points;
+        $college->points = $prev_points + 3;
+        $college->save();
        
         return ['msg' => 'success'];
     }
