@@ -51,6 +51,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'mobile_number' => 'required|string|numeric|unique:users',
             'event_name' => 'required|string|unique:users',
+            'event_type' => 'required|numeric',
             'department' => 'required|string',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -68,6 +69,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'mobile_number' => $data['mobile_number'],
             'event_name' => $data['event_name'],
+            'event_type' => $data['event_type'],
             'department' => $data['department'],
             'password' => bcrypt($data['password']),
         ]);

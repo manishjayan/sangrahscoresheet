@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('mobile_number')->unique();
             $table->string('event_name');
+            $table->integer('event_type');
             $table->string('department');
             $table->string('password');
             $table->rememberToken();

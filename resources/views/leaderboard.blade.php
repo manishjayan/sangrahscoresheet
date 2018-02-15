@@ -11,9 +11,9 @@
         </tr>
       </thead>
       <tbody>
-      @foreach ($colleges as $college)
+      @foreach ($colleges as $key => $college)
         <tr>
-          <td>1</td>
+          <td>{{ $key + 1 }}</td>
           <td>{{ $college->college_name }}</td>
           <td>{{ $college->points }}</td>
         </tr>

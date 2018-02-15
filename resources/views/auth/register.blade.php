@@ -53,6 +53,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('event_type') ? ' has-error' : '' }}">
+                            <label for="event_type" class="col-md-4 control-label">Event type</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" value="{{ old('event_type') }}" name="event_type">
+                                    <option value="1">Individual</option>
+                                    <option value="2">Group</option>
+                                    <option value="3">Main group</option>
+                                </select>
+                                @if ($errors->has('event_type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('event_type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
                             <label for="department" class="col-md-4 control-label">Department</label>
 

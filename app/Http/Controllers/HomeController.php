@@ -47,6 +47,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
+        $event_type = Auth::user()->event_type;
         $first_name = $request['firstname'];
         $second_name = $request['secondname'];
         $third_name = $request['thirdname'];
@@ -63,7 +64,22 @@ class HomeController extends Controller
 
         $college = College::find((int) $first_college);
         $prev_points = $college->points;
-        $college->points = $prev_points + 10;
+        
+        switch($event_type) {
+            // individual events
+            case 1:
+                $college->points = $prev_points + 10;
+                break;
+            // group events
+            case 2:
+                $college->points = $prev_points + 12;
+                break;
+            //  main group events
+            case 3:
+                $college->points = $prev_points + 15;
+                break;        
+        }
+        
         $college->save();
         
         $winner = new Winner();
@@ -75,7 +91,20 @@ class HomeController extends Controller
 
         $college = College::find((int) $second_college);
         $prev_points = $college->points;
-        $college->points = $prev_points + 6;
+        switch($event_type) {
+            // individual events
+            case 1:
+                $college->points = $prev_points + 6;
+                break;
+            // group events
+            case 2:
+                $college->points = $prev_points + 8;
+                break;
+            // main group events
+            case 3:
+                $college->points = $prev_points + 10;
+                break;        
+        }
         $college->save();
 
         $winner = new Winner();
@@ -87,7 +116,20 @@ class HomeController extends Controller
 
         $college = College::find((int) $third_college);
         $prev_points = $college->points;
-        $college->points = $prev_points + 3;
+        switch($event_type) {
+            // individual events
+            case 1:
+                $college->points = $prev_points + 3;
+                break;
+            // group events
+            case 2:
+                $college->points = $prev_points + 4;
+                break;
+            //  main group events
+            case 3:
+                $college->points = $prev_points + 5;
+                break;        
+        }
         $college->save();
        
         return redirect('/success');
