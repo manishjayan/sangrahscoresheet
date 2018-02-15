@@ -13,6 +13,10 @@
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/winners', function () {
+    return view('winners');
+});
+
 Auth::routes();
 
 
