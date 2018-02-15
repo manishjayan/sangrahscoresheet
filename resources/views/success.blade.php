@@ -7,7 +7,8 @@
             <div class="alert alert-info">
                 <strong>Info: </strong>
                 If you want to make any changes to this results
-                please contact our admin, Ph: 8281577130
+                please contact our admin,
+                <span class="text-danger"> Ph: 8281577130 </span>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
