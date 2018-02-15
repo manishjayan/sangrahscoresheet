@@ -10,7 +10,7 @@
         <tr>
           <th>Sl.No</th>
           <th>College Name</th>
-          <th>points</th>
+          <th>Points</th>
         </tr>
       </thead>
       <tbody>
