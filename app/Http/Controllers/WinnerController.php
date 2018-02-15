@@ -38,6 +38,7 @@ class WinnerController extends Controller
             }
             $score_board[$key] = $each;
         }
+        //dd($score_board);
         return view('winners', ['scoreboards' => $score_board]);
     }
 

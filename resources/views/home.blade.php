@@ -4,10 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-info">
+                <strong>Info: </strong>
+                if there is more than one students, then names must be seperated by commas
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <strong>Event:</strong> {{ $event }}
-                    <strong>Catogory: </strong>{{ $department }}
+                    <strong>Event:</strong> {{ $event }} &nbsp;
+                    <strong>category: </strong>{{ $department }}
                 </div>
 
                 <div class="panel-body">

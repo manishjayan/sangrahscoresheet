@@ -4,10 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-info">
+                <strong>Info: </strong>
+                If you have any further editing to this form please contact
+                our admin, Ph: 9745327460
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <strong>Event:</strong> {{ $event }}
-                    <strong>Catogory: </strong>{{ $department }}
+                    <strong>Event:</strong> {{ $event }} &nbsp;
+                    <strong>Category: </strong>{{ $department }}
                 </div>
 
                 <div class="panel-body">

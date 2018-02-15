@@ -2,8 +2,11 @@
 
 @section('content')
   <div class="container">
-    <table class="table table-bordered">
-      <thead>
+    <h1 class="page-header" style="margin-top: 10px; font-family: 'Quicksand', sans-serif">
+      Leaderboard
+    </h1>
+    <table class="table table-hover">
+      <thead class="bg-info">
         <tr>
           <th>Sl.No</th>
           <th>College Name</th>
