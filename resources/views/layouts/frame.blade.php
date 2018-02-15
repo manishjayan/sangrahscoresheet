@@ -16,7 +16,7 @@
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                font-family: 'Times', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -89,13 +89,8 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
                     <!-- Right Side Of Navbar --><b>
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav">
                         <!-- Authentication Links -->
                             <li><a href="{{ url('/') }}">Leaderboard</a></li>
                             <li><a href="{{ url('/winners')}}">Winners</a></li>
@@ -109,7 +104,7 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            <div class="content" id="icon">
+            <div class="content">
                     @yield('content')
             </div>
         </div>

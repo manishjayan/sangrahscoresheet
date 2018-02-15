@@ -3,35 +3,33 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-info">
-                Please Wait...</div>
             <div class="alert alert-success" style="display:none;">
                 <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order</div>
-            <table class="table">
+            <table class="table table-bordered" align = "center">
                 <thead>
-                    <tr>
-                        <th>
-                            Column heading
+                    <tr id='icon'>
+                        <th scope="col">
+                            Rank
                         </th>
-                        <th>
-                            Column heading
+                        <th scope="col">
+                            College
                         </th>
-                        <th>
-                            Column heading
+                        <th scope="col">
+                            Points
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="active">
-                        <td>
-                            Column content
+                        <th scope="row">
+                            1
                         </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
+                        <th>
+                            Gcek
+                        </th>
+                        <th>
+                            58
+                        </th>
                     </tr>
                     <tr>
                         <td>
