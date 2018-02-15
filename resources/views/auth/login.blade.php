@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('mobile_number') ? ' has-error' : '' }}">
-v
+
                             <label for="mobile_number" class="col-md-4 control-label">User ID</label>
 
 

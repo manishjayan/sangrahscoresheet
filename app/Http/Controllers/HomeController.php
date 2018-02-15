@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Winner;
 use App\College;
+use App\User;
 use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -25,10 +27,16 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   if(Winner::where('user_id', Auth::user()->id)->count()) {
+            return redirect('/success');
+        }
         $college = new College();
         $colleges = $college->get()->all();
-        return view('home', ['colleges' => $colleges]);
+        return view('home', [
+            'colleges' => $colleges,
+            'event' => Auth::user()->event_name,
+            'department' => Auth::user()->department
+        ]);
     }
 
     /**
@@ -49,6 +57,7 @@ class HomeController extends Controller
         $winner = new Winner();
         $winner->name = $first_name;
         $winner->college_id = (int) $first_college;
+        $winner->position = 1;
         $winner->user_id = Auth::user()->id;
         $winner->save();
 
@@ -60,6 +69,7 @@ class HomeController extends Controller
         $winner = new Winner();
         $winner->name = $second_name;
         $winner->college_id = (int) $second_college;
+        $winner->position = 2;
         $winner->user_id = Auth::user()->id;
         $winner->save();
 
@@ -71,6 +81,7 @@ class HomeController extends Controller
         $winner = new Winner();
         $winner->name = $third_name;
         $winner->college_id = (int) $third_college;
+        $winner->position = 3;
         $winner->user_id = Auth::user()->id;
         $winner->save();
 
@@ -79,20 +90,19 @@ class HomeController extends Controller
         $college->points = $prev_points + 3;
         $college->save();
        
-        return ['msg' => 'success'];
+        return redirect('/success');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Winner  $winner
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Winner $winner)
-    {
-        //
+    public function success_page() {
+        $results = DB::select('SELECT * FROM winners, colleges WHERE user_id = ? AND college_id = colleges.id',
+                     [Auth::user()->id]);
+        return view('success', ['results' => $results, 
+            'event' => Auth::user()->event_name,
+            'department' => Auth::user()->department
+        ]);
     }
 
+   
     /**
      * Show the form for editing the specified resource.
      *

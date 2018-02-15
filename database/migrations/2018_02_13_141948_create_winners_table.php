@@ -17,6 +17,7 @@ class CreateWinnersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('college_id')->unsigned();
+            $table->integer('position');
             $table->string('name');
             $table->timestamps();
         });
