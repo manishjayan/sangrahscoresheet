@@ -38,13 +38,12 @@ class WinnerController extends Controller
             }
             $score_board[$key] = $each;
         }
-        //return view('welcome', ['scoreboard' => $scoreboard]);
-        return $score_board;
+        return view('winners', ['scoreboards' => $score_board]);
     }
 
     public function show_leaderboard()
     {
-        $colleges = College::get()->all();
+        $colleges = DB::select('select * from colleges order by points desc ');
         return view('leaderboard', ['colleges' => $colleges]);
     }
 

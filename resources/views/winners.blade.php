@@ -1,107 +1,33 @@
-@extends('layouts.frame')
+@extends("layouts.app")
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-info">
-                Please Wait...</div>
-            <div class="alert alert-success" style="display:none;">
-                <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order</div>
-            <table class="table-responsive">
-                <thead>
-                    <tr>
-                        <th>
-                            Column heading
-                        </th>
-                        <th>
-                            Column heading
-                        </th>
-                        <th>
-                            Column heading
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="active">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr class="success">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr class="warning">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr class="danger">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    @foreach($scoreboards as $event => $winners) 
+        <div class="panel panel-default" style="margin-bottom: 20px;">
+            <div class="panel-heading">
+                <strong>Event: {{ $event }}</strong>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th>Position</th>
+                            <th>Names</th>
+                            <th>College Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($winners as $winner) 
+                        <tr>
+                            <td>{{ $winner->position }}</td>
+                            <td>{{ $winner->name }}</td>
+                            <td>{{ $winner->college_name }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    @endforeach
 </div>
 @endsection
+

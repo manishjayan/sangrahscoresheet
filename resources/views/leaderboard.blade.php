@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>Sl.No</th>

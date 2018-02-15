@@ -20,8 +20,8 @@ Route::get('/winners', function () {
 Auth::routes();
 
 
-Route::get('/', 'WinnerController@show_winners')->name('winners');
-Route::get('/leaderboard', 'WinnerController@show_leaderboard')->name('leaderboard');
+Route::get('/', 'WinnerController@show_leaderboard')->name('leaderboard');
+Route::get('/winners', 'WinnerController@show_winners')->name('winners');
 
 Route::post('/home', 'HomeController@store');
 Route::get('/success', 'HomeController@success_page')->name('success');
