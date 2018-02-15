@@ -6,8 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="alert alert-info">
                 <strong>Info: </strong>
-                If you have any further editing to this form please contact
-                our admin, Ph: 9745327460
+                If you want to make any changes to this results
+                please contact our admin, Ph: 8281577130
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
