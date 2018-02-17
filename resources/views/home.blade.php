@@ -54,7 +54,7 @@
                             <label for="college">College: </label>
                             <select class="form-control" name="second_college" required>
                                 @foreach ($colleges as $college)
-                                    <option value="{{ $college->id }}">{{ $college->college_name }}</option>
+                                    <option value="{{ $college->id }}" @if($college->id==53) selected @endif>{{ $college->college_name }}</option>
                                 @endforeach
                             </select>
                             
@@ -70,7 +70,7 @@
                             <label for="college">College: </label>
                             <select class="form-control" name="third_college" required>
                                 @foreach ($colleges as $college)
-                                    <option value="{{ $college->id }}">{{ $college->college_name }}</option>
+                                    <option value="{{ $college->id }}" @if($college->id==53) selected @endif>{{ $college->college_name }}</option>
                                 @endforeach
                             </select>
                             
