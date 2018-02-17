@@ -38,7 +38,7 @@
                             <label for="college">College: </label>
                             <select class="form-control" name="first_college" required>
                                 @foreach ($colleges as $college)
-                                    <option value="{{ $college->id }}">{{ $college->college_name }}</option>
+                                    <option value="{{ $college->id }}" @if($college->id==53) selected @endif>{{ $college->college_name }}</option>
                                 @endforeach
                             </select> 
                         </div>
